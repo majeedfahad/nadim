@@ -42,6 +42,14 @@
 
       * { box-sizing: border-box; }
       html, body { height: 100%; }
+      a { 
+        text-decoration: none;    /* يشيل الخط */
+        color: inherit;           /* ياخذ لون النص من الأب */
+      }
+      a:hover,
+      a:focus { 
+        text-decoration: none; 
+      }
       body {
         margin: 0;
         font-family: var(--font-body); font-weight:300;
@@ -269,7 +277,7 @@
       .scene .dunes-back { z-index: 1; }
       .scene .skyline { z-index: 0; }
       .scene .camels { z-index: 3; }
-      .scene .palm-right { z-index: 4; }
+      .scene .palm-right { z-index: 1; }
       .scene .dunes-front { z-index: 5; }
       .scene .svg-el {
         width: 100%;
@@ -279,35 +287,42 @@
       }
 
       .scene .moon {
-        top: -18%;
-        right: 6%;
+        top: -16%;
+        right: 1%;
         width: clamp(280px, 32%, 440px);
         aspect-ratio: 473.68 / 459.37;
       }
       .scene .palm-right {
-        bottom: 18%;
-        right: -6%;
+        bottom: -8%;
+        right: -17%;
         width: clamp(320px, 34%, 480px);
         aspect-ratio: 365.78 / 459.37;
       }
       .scene .dunes-back {
-        left: 50%;
-        bottom: 12%;
-        width: clamp(960px, 126%, 1400px);
+        left: 68%;
+        bottom: -21%;
+        width: clamp(951px, 90%, 1400px);
         aspect-ratio: 1602.43 / 373.66;
         transform: translateX(-50%);
       }
       .scene .skyline {
-        left: 50%;
-        bottom: 26%;
-        width: clamp(260px, 32%, 420px);
+        left: 84%;
+        bottom: -9%;
+        width: clamp(270px, 40%, 420px);
         aspect-ratio: 473.68 / 200;
         transform: translateX(-46%);
       }
       .scene .camels {
-        left: 50%;
-        bottom: 16%;
-        width: clamp(240px, 28%, 360px);
+        left: 70%;
+        bottom: 4%;
+        width: clamp(200px, 15%, 360px);
+        aspect-ratio: 264.14 / 250.45;
+        transform: translateX(-8%);
+      }
+      .scene .camels-2 {
+        left: 79%;
+        bottom: 4%;
+        width: clamp(200px, 15%, 360px);
         aspect-ratio: 264.14 / 250.45;
         transform: translateX(-8%);
       }
@@ -438,7 +453,7 @@
         <section class="card" id="menu">
           <h2 class="section-title">المنيو</h2>
           <div class="grid">
-            <a class="btn" href="#" id="menuLink" target="_blank" rel="noopener">
+            <a class="btn" href="https://nadim.yallaqrcodes.com" id="menuLink" target="_blank" rel="noopener">
               <span class="ico" aria-hidden="true"></span>
               <span>عرض المنيو</span>
             </a>
@@ -451,13 +466,13 @@
           
           <div class="delivery-logos" aria-label="شعارات تطبيقات التوصيل">
             <div class="logo-chip">
-              <img src="assets/logos/jahez.svg" alt="شعار جاهز">
+              <a href="https://jahez.link/aerldOYYcXb"><img src="assets/logos/jahez.svg" alt="شعار جاهز"></a>
             </div>
             <div class="logo-chip">
-              <img src="assets/logos/chefs.png" alt="شعار ذا شفز">
+              <a href="https://thechefzco.app.link/PwJKT91YcXb"><img src="assets/logos/chefs.png" alt="شعار ذا شفز"></a>
             </div>
             <div class="logo-chip">
-              <img src="assets/logos/keeta.png" alt="شعار كيتا">
+              <a href="https://url.mykeeta.com/BcclckPz"><img src="assets/logos/keeta.png" alt="شعار كيتا"></a>
             </div>
           </div>
         </section>
@@ -465,30 +480,30 @@
         <section class="card" id="branches">
           <h2 class="section-title">فروعنا</h2>
           <div class="branches-simple" role="list">
-            <div class="branch-item" role="listitem">
+            <a href="https://maps.app.goo.gl/D14yq4iUdqrnobgW6?g_st=ipc"><div class="branch-item" role="listitem">
               <span class="branch-pin" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
                 </svg>
               </span>
               <span class="branch-name">حي المغرزات</span>
-            </div>
-            <div class="branch-item" role="listitem">
+            </div></a>
+            <a href="https://maps.app.goo.gl/KL9wwimTiNDDtv6t8?g_st=ipc"><div class="branch-item" role="listitem">
               <span class="branch-pin" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
                 </svg>
               </span>
               <span class="branch-name">حي قرطبة</span>
-            </div>
-            <div class="branch-item" role="listitem">
+            </div></a>
+            <a href="https://maps.app.goo.gl/3rU52Pk8yGMrWEA59?g_st=ipc"><div class="branch-item" role="listitem">
               <span class="branch-pin" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
                 </svg>
               </span>
               <span class="branch-name">المدينة الرقمية</span>
-            </div>
+            </div></a>
           </div>
         </section>
       </main>
