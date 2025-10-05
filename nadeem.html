@@ -1,0 +1,591 @@
+<html lang="ar" dir="rtl"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>نديم | روابط المحل</title>
+    <meta name="description" content="روابط سريعة لمحل الشاهي نديم: الفروع، المنيو، تطبيقات التوصيل، ومواقع التواصل.">
+    <meta name="theme-color" content="#3C2415">
+
+    <!-- Webfont (اختياري) يمكن حذفها لو تبي بدون تحميل خارجي -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+    <style>
+      @font-face {
+      font-family: 'Metropolis';
+      src: url('assets/fonts/Metropolis-Black.otf') format('opentype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'GretaArabic';
+      src: url('assets/fonts/ArbFONTS-GretaTextArabicLight.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+      :root {
+        --bg: #E6E4E0;
+        --bg-overlay: rgba(230, 228, 224, 0);
+        --card: rgba(255, 255, 255, 0.08);
+        --text: #FFFFFF;
+        --muted: #C2B59B;
+        --brand: #C49A6C; /* لون شاهي */
+        --brand-2: #754C29; /* بني غامق */
+        --radius: 18px;
+        --shadow: 0 10px 25px rgba(0,0,0,.25);
+        --vh: 1vh; /* fallback لو ما اشتغل السكريبت */
+        --font-body: 'GretaArabic','Metropolis',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+        --font-heading: 'Metropolis','GretaArabic',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: var(--font-body); font-weight:300;
+        color: var(--text);
+        background: var(--bg);
+        /* الخلفية النهائية بنحطها من الـPDF كصورة */
+        background-image: none; /* سيتم تركيب الخلفية بعناصر SVG منفصلة */
+        background-size: cover;
+        background-position: center;
+        backdrop-filter: saturate(110%);
+      }
+
+      .overlay {
+        position: fixed; inset: 0;
+        background: var(--bg-overlay);
+        backdrop-filter: blur(2px);
+      }
+
+      .wrap {
+        position: relative;
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: min(100%, 900px);
+        margin: 0 auto;
+        padding-inline: clamp(16px, 5vw, 32px);
+      }
+
+      header {
+        padding: 28px 18px 0;
+        text-align: center;
+      }
+      .logo {
+        width: 110px; height: 110px; margin: 0 auto 10px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.12);
+        display: grid; place-items: center;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .logo img { width: 100%; height: 100%; object-fit: cover; }
+      h1 { margin: 8px 0 4px; font-size: 1.6rem; letter-spacing: .5px; }
+      .social-strip {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:18px;
+        margin-top:6px;
+        color: var(--muted);
+        font-size:.95rem;
+      }
+      .social-strip .handle {
+        font-weight:500;
+        letter-spacing:.6px;
+      }
+      .social-strip a {
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:30px;
+        height:30px;
+        border-radius:50%;
+        background: rgba(183,69,69,0.12);
+        border:1px solid rgba(183,69,69,0.36);
+        color: #B74545;
+        text-decoration:none;
+        transition: transform .12s ease, background .2s ease;
+      }
+      .social-strip a:hover {
+        transform: translateY(-2px);
+        background: rgba(183,69,69,0.24);
+      }
+      .social-strip svg {
+        width:16px;
+        height:16px;
+        fill: currentColor;
+      }
+
+      main { padding: 16px; }
+      .card {
+        background: var(--card);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 16px;
+        margin: 14px auto;
+        max-width: 820px;
+      }
+
+      .btn {
+        display: flex; align-items: center; justify-content: center;
+        gap: 10px; text-decoration: none;
+        background: linear-gradient(180deg, var(--brand) 0%, var(--brand-2) 100%);
+        color: #fff; padding: 14px 16px; border-radius: 14px;
+        font-weight: 600; border: 1px solid rgba(255,255,255,0.15);
+        transition: transform .08s ease, filter .2s ease, opacity .2s ease;
+        box-shadow: 0 8px 18px rgba(0,0,0,.25);
+      }
+      .btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
+      .btn:active { transform: translateY(0); opacity: .9; }
+
+      .grid {
+        display: grid; gap: 10px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 560px) {
+        .grid.two { grid-template-columns: repeat(2, 1fr); }
+        .grid.three { grid-template-columns: repeat(3, 1fr); }
+        .grid.four { grid-template-columns: repeat(4, 1fr); }
+      }
+
+      .section-title { 
+        font-size: 1.1rem; 
+        margin: 0 0 10px; 
+        opacity: .95; 
+        /* color: #c49a6c; */
+        color: #b74545;
+      }
+      .muted { color: var(--muted); font-size: .95rem; }
+
+      .app {
+        display:flex; align-items:center; gap:10px;
+        padding: 12px; border-radius: 12px; text-decoration:none; color:#fff;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        transition: background .2s ease, transform .08s ease;
+      }
+      .app:hover { background: rgba(255,255,255,0.12); transform: translateY(-1px); }
+      .app .icon { width: 26px; height: 26px; display:grid; place-items:center; }
+      .app .name { font-weight:600; }
+
+      .delivery-logos {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
+        flex-wrap:wrap;
+        margin-top:22px;
+      }
+      .delivery-logos .logo-chip {
+        display:grid;
+        place-items:center;
+        padding:11px 8px;
+        border-radius:16px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        /* box-shadow: 0 6px 16px rgba(0,0,0,0.18); */
+        min-width:120px;
+      }
+      .delivery-logos img {
+        display:block;
+        max-width:110px;
+        max-height:48px;
+        width:100%;
+        height:auto;
+        object-fit:contain;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+      }
+
+      .branches-simple {
+        display:flex;
+        justify-content:center;
+        gap:28px;
+        flex-wrap:wrap;
+        margin-top:16px;
+      }
+      .branch-item {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+        text-align:center;
+        min-width:140px;
+      }
+      .branch-pin {
+        width:48px;
+        height:48px;
+        border-radius:50%;
+        background: rgba(196,154,108,0.15);
+        display:grid;
+        place-items:center;
+        border:1px solid rgba(255,255,255,0.18);
+        box-shadow:0 4px 12px rgba(0,0,0,0.18);
+      }
+      .branch-pin svg {
+        width:26px;
+        height:26px;
+        fill:#c49a6c;
+      }
+      .branch-name {
+        font-weight:600;
+        color:#c49a6c;
+      }
+
+      .socials { display:flex; flex-wrap: wrap; gap:10px; }
+      .socials a { border-radius: 12px; padding: 10px 12px; background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); text-decoration:none; color:#fff; display:flex; align-items:center; gap:8px; }
+
+      footer { text-align:center; padding: 18px; color: var(--muted); font-size: .9rem; }
+
+      /* تنسيقات بسيطة لو تبي تلوّن كل تطبيق */
+      .jahez { background: rgba(188, 0, 0, 0.18); }
+      .hungerstation { background: rgba(255, 193, 7, 0.20); }
+      .mrsool { background: rgba(0, 150, 136, 0.18); }
+      .toyou { background: rgba(63, 81, 181, 0.18); }
+
+      /* Placeholder icons using CSS circle */
+      .ico { width:22px; height:22px; border-radius:50%; background:#fff2; display:inline-block; }
+      .scene {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .scene-inner {
+        position: relative;
+        width: clamp(720px, 86vw, 1180px);
+        height: clamp(320px, calc(var(--vh) * 58), 520px);
+        margin-bottom: clamp(18px, calc(var(--vh) * 3), 42px);
+      }
+      .scene .layer { position: absolute; }
+      /* ترتيب الطبقات */
+      .scene .moon { z-index: 0; opacity: .96; }
+      .scene .dunes-back { z-index: 1; }
+      .scene .skyline { z-index: 0; }
+      .scene .camels { z-index: 3; }
+      .scene .palm-right { z-index: 4; }
+      .scene .dunes-front { z-index: 5; }
+      .scene .svg-el {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+      }
+
+      .scene .moon {
+        top: -18%;
+        right: 6%;
+        width: clamp(280px, 32%, 440px);
+        aspect-ratio: 473.68 / 459.37;
+      }
+      .scene .palm-right {
+        bottom: 18%;
+        right: -6%;
+        width: clamp(320px, 34%, 480px);
+        aspect-ratio: 365.78 / 459.37;
+      }
+      .scene .dunes-back {
+        left: 50%;
+        bottom: 12%;
+        width: clamp(960px, 126%, 1400px);
+        aspect-ratio: 1602.43 / 373.66;
+        transform: translateX(-50%);
+      }
+      .scene .skyline {
+        left: 50%;
+        bottom: 26%;
+        width: clamp(260px, 32%, 420px);
+        aspect-ratio: 473.68 / 200;
+        transform: translateX(-46%);
+      }
+      .scene .camels {
+        left: 50%;
+        bottom: 16%;
+        width: clamp(240px, 28%, 360px);
+        aspect-ratio: 264.14 / 250.45;
+        transform: translateX(-8%);
+      }
+
+      /* تحسين التوافق مع الجوال */
+      @media (max-width: 640px) {
+        .scene-inner {
+          width: min(480px, 96vw);
+          height: clamp(260px, calc(var(--vh) * 58), 420px);
+          margin-bottom: clamp(16px, calc(var(--vh) * 4), 32px);
+        }
+        .delivery-logos {
+          gap:10px;
+          margin-top:18px;
+        }
+        .delivery-logos .logo-chip {
+          min-width:100px;
+          padding:11px 8px;
+        }
+        .delivery-logos img {
+          max-width:92px;
+          max-height:42px;
+        }
+        .branches-simple {
+          gap:10px;
+        }
+        .branch-item {
+          min-width:100px;
+        }
+        
+        .scene .moon {
+          top: 44%;
+          right: 20%;
+          width: clamp(150px, 35vw, 320px);
+        }
+        .scene .palm-right {
+          right: -23%;
+          bottom: -11%;
+          width: clamp(260px, 40vw, 360px);
+        }
+        .scene .dunes-back {
+          left: 54%;
+          bottom: -14%;
+          width: 110%;
+          transform: translateX(-50%);
+        }
+        .scene .skyline {
+          left: 71%;
+          bottom: -14%;
+          width: clamp(220px, 70%, 320px);
+          transform: translateX(-54%);
+        }
+        .scene .camels {
+          left: 46%;
+          bottom: -4%;
+          width: clamp(120px, 25vw, 320px);
+          transform: translateX(-18%);
+        }
+        .scene .camels-2 {
+          left: 62%;
+          bottom: -4%;
+          width: clamp(120px, 25vw, 320px);
+          transform: translateX(-18%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <!-- تركيبة الخلفية بالـSVG: عناصر مستقلة قابلة للاستبدال -->
+    <div class="scene" aria-hidden="true">
+      <div class="scene-inner">
+        <!-- القمر -->
+        <div class="layer moon">
+          <img class="svg-el" src="assets/moon.svg" alt="القمر">
+        </div>
+        <!-- نخلة يمين -->
+        <div class="layer palm-right">
+          <img class="svg-el" src="assets/palm.svg" alt="نخلة">
+        </div>
+        <!-- كثبان وتلال -->
+        <div class="layer dunes-back">
+          <img class="svg-el" src="assets/dunes-back.svg" alt="تلال خلفية">
+        </div>
+        <!-- مدينة/سكايلان -->
+        <div class="layer skyline">
+          <img class="svg-el" src="assets/dunes.svg" alt="أفق المدينة">
+        </div>
+        <!-- الجمال -->
+        <div class="layer camels">
+          <img class="svg-el" src="assets/camels.svg" alt="جمال">
+        </div>
+        <div class="layer camels-2">
+          <img class="svg-el" src="assets/camels-2.svg" alt="جمال">
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <header>
+        <!-- الشعار: بنبدله لاحقًا بـ SVG من ملفك -->
+        <div class="logo" aria-label="شعار نديم">
+          <!-- استبدل src بملف الشعار الذي أرسلته svg -->
+          <img src="nadim-logo.svg" alt="نديم">
+        </div>
+        <h1 style="color: #b74545;">شاي نديم</h1>
+        <div class="social-strip" aria-label="حسابات السوشال ميديا">
+          <a href="https://x.com/nadim_ksa" target="_blank" rel="noopener" aria-label="حساب نديم على X">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h4.3l3.7 5.4 3.7-5.4H20l-6.4 8.7L19.7 20H15.4l-3.7-5.4L8 20H4l6.4-8.7L4 4z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/nadim_ksa" target="_blank" rel="noopener" aria-label="حساب نديم على انستقرام">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.8A3.1 3.1 0 1 1 15.1 12 3.09 3.09 0 0 1 12 15.1Zm6-8.7a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1ZM21 7a5 5 0 0 0-5-5H8A5 5 0 0 0 3 7v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5Zm-1.6 8A3.4 3.4 0 0 1 16 18.4H8A3.4 3.4 0 0 1 4.6 15V7A3.4 3.4 0 0 1 8 3.6h8A3.4 3.4 0 0 1 19.4 7Z"/>
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@nadim_ksa" target="_blank" rel="noopener" aria-label="حساب نديم على تيك توك">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 8.1a5.74 5.74 0 0 1-3.3-1.1v8.1a6.9 6.9 0 1 1-6.9-6.9 6.46 6.46 0 0 1 1.3.13v3.16a3.28 3.28 0 0 0-1.3-.26 3.4 3.4 0 1 0 3.4 3.4V3h3.2a5.7 5.7 0 0 0 3.3 5.1Z"/>
+            </svg>
+          </a>
+          <!-- <span class="handle">@nadim_ksa</span> -->
+        </div>
+      </header>
+
+      <main>
+        <!-- زر رئيسي للمنيو -->
+        <section class="card" id="menu">
+          <h2 class="section-title">المنيو</h2>
+          <div class="grid">
+            <a class="btn" href="#" id="menuLink" target="_blank" rel="noopener">
+              <span class="ico" aria-hidden="true"></span>
+              <span>عرض المنيو</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- تطبيقات التوصيل -->
+        <section class="card" id="delivery">
+          <h2 class="section-title">تطبيقات التوصيل</h2>
+          
+          <div class="delivery-logos" aria-label="شعارات تطبيقات التوصيل">
+            <div class="logo-chip">
+              <img src="assets/logos/jahez.svg" alt="شعار جاهز">
+            </div>
+            <div class="logo-chip">
+              <img src="assets/logos/chefs.png" alt="شعار ذا شفز">
+            </div>
+            <div class="logo-chip">
+              <img src="assets/logos/keeta.png" alt="شعار كيتا">
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="branches">
+          <h2 class="section-title">فروعنا</h2>
+          <div class="branches-simple" role="list">
+            <div class="branch-item" role="listitem">
+              <span class="branch-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                </svg>
+              </span>
+              <span class="branch-name">حي المغرزات</span>
+            </div>
+            <div class="branch-item" role="listitem">
+              <span class="branch-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                </svg>
+              </span>
+              <span class="branch-name">حي قرطبة</span>
+            </div>
+            <div class="branch-item" role="listitem">
+              <span class="branch-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                </svg>
+              </span>
+              <span class="branch-name">المدينة الرقمية</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // تثبيت قيمة vh عشان الخلفية ما تتحرك في الجوال
+      const root = document.documentElement;
+      let lastViewportHeight = window.innerHeight;
+      const setViewportUnit = () => {
+        const vh = window.innerHeight * 0.01;
+        root.style.setProperty('--vh', `${vh}px`);
+      };
+      setViewportUnit();
+      window.addEventListener('resize', () => {
+        if (Math.abs(window.innerHeight - lastViewportHeight) > 120) {
+          lastViewportHeight = window.innerHeight;
+          setViewportUnit();
+        }
+      });
+      window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+          lastViewportHeight = window.innerHeight;
+          setViewportUnit();
+        }, 200);
+      });
+
+      // ملاحظات سريعة:
+      // - بنبدل الخلفية عبر CSS var --hero بعد ما نستخرج الخلفية من الـPDF.
+      // - استبدل الروابط الحقيقية في الأسفل.
+
+      // سنة الفوتر
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // افتح في الخرائط: يستخدم lat/lng إذا توفرت، وإلا يبحث بـ query
+      function mapsLinkFor(el) {
+        const p = el.closest('.branch');
+        const lat = p.getAttribute('data-lat');
+        const lng = p.getAttribute('data-lng');
+        const label = encodeURIComponent(p.getAttribute('data-label') || 'الموقع');
+        const query = encodeURIComponent(p.getAttribute('data-query') || '');
+        if (lat && lng) {
+          // تنسيق Google Maps
+          return `https://maps.google.com/?q=${lat},${lng}(${label})&z=17`;
+        }
+        if (query) {
+          return `https://maps.google.com/?q=${query}`;
+        }
+        return '#';
+      }
+
+      document.querySelectorAll('.open-maps').forEach(a => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const url = mapsLinkFor(e.currentTarget);
+          if (url !== '#') window.open(url, '_blank', 'noopener');
+        });
+      });
+
+      // ⬇️ ضع روابطك الفعلية هنا بسهولة
+      const LINKS = {
+        menu: '#', // رابط PDF المنيو أو صفحة HTML
+        apps: {
+          jahez: '#',
+          hungerstation: '#',
+          mrsool: '#',
+          toyou: '#',
+        },
+        socials: {
+          instagram: '#',
+          snapchat: '#',
+          tiktok: '#',
+          x: '#'
+        }
+      };
+
+      // حقن الروابط
+      document.getElementById('menuLink').href = LINKS.menu;
+      const appEls = document.querySelectorAll('#delivery .app');
+      appEls.forEach(a => {
+        const name = a.textContent.trim();
+        if (name.includes('جاهز')) a.href = LINKS.apps.jahez;
+        else if (name.includes('هنقرستيشن')) a.href = LINKS.apps.hungerstation;
+        else if (name.includes('مرسول')) a.href = LINKS.apps.mrsool;
+        else if (name.includes('تويو')) a.href = LINKS.apps.toyou;
+      });
+      const socialEls = document.querySelectorAll('#socials a');
+      socialEls.forEach(a => {
+        if (a.ariaLabel?.toLowerCase().includes('instagram')) a.href = LINKS.socials.instagram;
+        else if (a.ariaLabel?.toLowerCase().includes('snapchat')) a.href = LINKS.socials.snapchat;
+        else if (a.ariaLabel?.toLowerCase().includes('tiktok')) a.href = LINKS.socials.tiktok;
+        else if (a.ariaLabel?.toLowerCase().includes('x')) a.href = LINKS.socials.x;
+      });
+
+      // مثال: تغيير الخلفية برمجيًا بعد استلام صورة الخلفية
+      // document.body.style.setProperty('--hero', "url('nadeem-bg.jpg')");
+    </script>
+  
+
+</body></html>
