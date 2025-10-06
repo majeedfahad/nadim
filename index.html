@@ -535,9 +535,6 @@
       // - بنبدل الخلفية عبر CSS var --hero بعد ما نستخرج الخلفية من الـPDF.
       // - استبدل الروابط الحقيقية في الأسفل.
 
-      // سنة الفوتر
-      document.getElementById('year').textContent = new Date().getFullYear();
-
       // افتح في الخرائط: يستخدم lat/lng إذا توفرت، وإلا يبحث بـ query
       function mapsLinkFor(el) {
         const p = el.closest('.branch');
